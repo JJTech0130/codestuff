@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Snake</title>
+    </head>
+    <body>
+        <canvas id="canvas" width="1024" height="1024"></canvas>
+        <script>
+            var board = [
+                "###############",
+                "#             #",
+                "#             #",
+                "#             #",
+                "#    ####     #",
+                "#    ####     #",
+                "#             #",
+                "#             #",
+                "#             #",
+                "###############"
+            ];
+            var canvas = document.getElementById("canvas");
+            var ctx = canvas.getContext("2d");
+            var graphics = {
+                drawBoard: function() {
+                    //fill this in with below
+                }
+            }
+            var currentYOffset = 0;
+            var squareSize = 30;
+            board.forEach(function checkline(line) {
+                line = line.split('');
+                var currentXOffset = 0;
+                line.forEach(function checkCharacter(character) {
+                    if(character == '#') {
+                        ctx.fillStyle = "black";
+                        ctx.fillRect(currentXOffset, currentYOffset, squareSize, squareSize);
+                    }
+                currentXOffset += squareSize;
+                });
+            currentYOffset += squareSize;
+            });
+        </script>
+    </body>
+</html>
